@@ -53,8 +53,13 @@ const autoscroll = () => {
 };
 
 // function to play sounds
-const playSound = () => {
-  var audio = new Audio("../sounds/new_msg.mp3");
+const playRecieveSound = () => {
+  let audio = new Audio("../sounds/new_msg.mp3");
+  audio.play();
+};
+
+const playSendSound = () => {
+  let audio = new Audio("../sounds/send_sound.mp3");
   audio.play();
 };
 
@@ -62,8 +67,18 @@ const playSound = () => {
 socket.on("print", (msg, id) => {
   // for styling the message
   const msgClass = id === "admin" ? "admin" : id === myId ? "me" : "others";
-  // if this message came from others
-  if (msgClass === "others") playSound();
+
+  // run the appropriate sound
+  switch (msgClass) {
+    case "me":
+      playSendSound();
+      break;
+    case "others":
+      playRecieveSound();
+      break;
+    default:
+      break;
+  }
 
   const htmlOfMsg = Mustache.render(messageTemplate, {
     username: msg.username,
@@ -138,8 +153,18 @@ $locationBtn.addEventListener("click", () => {
 socket.on("printLocation", (locationMsg, id) => {
   // for styling the message
   const msgClass = id === "admin" ? "admin" : id === myId ? "me" : "others";
-  // if this message came from others
-  if (msgClass === "others") playSound();
+
+  // run the appropriate sound
+  switch (msgClass) {
+    case "me":
+      playSendSound();
+      break;
+    case "others":
+      playRecieveSound();
+      break;
+    default:
+      break;
+  }
 
   const html = Mustache.render(locationTemplate, {
     username: locationMsg.username,
