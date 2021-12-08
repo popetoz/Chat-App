@@ -1,0 +1,105 @@
+:root {
+  --mainColor: #018779;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main {
+  height: 100vh;
+  background-color: #23292e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #23292e;
+}
+
+.main .box h2 {
+  margin-bottom: 40px;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.main .box i {
+  color: var(--mainColor);
+  display: block;
+  margin: auto;
+  width: 70px;
+  height: 70px;
+}
+
+.main .box {
+  background-color: #ddd;
+  padding: 30px 40px;
+}
+
+.main .box form .group {
+  margin-bottom: 30px;
+}
+
+.main .box form .group label {
+  font-size: 20px;
+  display: block;
+  margin-bottom: 7px;
+}
+
+.main .box form .group input {
+  padding: 15px;
+  width: 100%;
+  font-size: 17px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+.main .box form .group button {
+  border: none;
+  outline: none;
+  font-size: 20px;
+  background-color: var(--mainColor);
+  color: #eee;
+  padding: 14px;
+  text-align: center;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  display: block;
+  margin: 40px auto 20px auto;
+  cursor: pointer;
+}
+
+.main .box form .group input:invalid + .group > button {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 767px) {
+  .main .box h2 {
+    margin-bottom: 20px;
+    font-size: 25px;
+  }
+
+  .main .box form .group input {
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+  }
+
+  .main .box {
+    background-color: #ddd;
+    padding: 25px 35px;
+  }
+}
